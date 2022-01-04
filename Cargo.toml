@@ -1,0 +1,44 @@
+[package]
+name = "reed-solomon-16"
+version = "0.1.0"
+license = "MIT AND BSD-3-Clause"
+description = "Reed-Solomon GF(2^16) erasure coding with O(n log n) complexity"
+repository = "https://github.com/malaire/reed-solomon-16"
+keywords = [ "erasure", "reed-solomon" ]
+categories = [ "algorithms" ]
+edition = "2021"
+
+include = [
+    "/benches",
+    "/src",
+    "LICENSE",
+    "README.md",
+    "algorithm.md",
+    "build.rs",
+]
+
+[dependencies]
+bytemuck = "1.7.3"
+fixedbitset = "0.4.0"
+once_cell = "1.8.0"
+
+[build-dependencies]
+readme-rustdocifier = "0.1.0"
+
+[dev-dependencies]
+criterion = { version = "0.3", features = [ "html_reports" ] }
+hex = "0.4.3"
+rand = "0.8.4"
+rand_chacha = "0.3.1"
+sha2 = "0.10.0"
+
+# These are only for `examples/quick-comparison.rs`.
+reed-solomon-erasure = { version = "5.0.1", features = [ "simd-accel" ] }
+reed-solomon-novelpoly = "1.0.0"
+
+[lib]
+bench = false
+
+[[bench]]
+name = "benchmarks"
+harness = false
