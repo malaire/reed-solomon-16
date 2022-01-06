@@ -17,11 +17,13 @@ pub struct NoSimd {
 }
 
 impl NoSimd {
-    /// Creates new [`NoSimd`], initializing all tables
+    /// Creates new [`NoSimd`], initializing all [tables]
     /// needed for encoding or decoding.
     ///
     /// Currently only difference between encoding/decoding is
-    /// `log_walsh` (128 kiB) which is only needed for decoding.
+    /// [`LogWalsh`] (128 kiB) which is only needed for decoding.
+    ///
+    /// [`LogWalsh`]: crate::engine::tables::LogWalsh
     pub fn new() -> Self {
         let mul16 = tables::initialize_mul16();
         let skew = tables::initialize_skew();

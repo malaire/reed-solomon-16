@@ -21,11 +21,13 @@ pub struct Naive {
 }
 
 impl Naive {
-    /// Creates new [`Naive`], initializing all tables
+    /// Creates new [`Naive`], initializing all [tables]
     /// needed for encoding or decoding.
     ///
     /// Currently only difference between encoding/decoding is
-    /// `log_walsh` (128 kiB) which is only needed for decoding.
+    /// [`LogWalsh`] (128 kiB) which is only needed for decoding.
+    ///
+    /// [`LogWalsh`]: crate::engine::tables::LogWalsh
     pub fn new() -> Self {
         let (exp, log) = tables::initialize_exp_log();
         let skew = tables::initialize_skew();
