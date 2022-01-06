@@ -108,6 +108,9 @@ Encoding takes original shards as input and generates recovery shards.
 - Encoding is done in **chunks** of `recovery_count.next_power_of_two()` shards.
 - Original shards are split into chunks and last chunk
   is padded with zero-filled shards if needed.
+    - In theory original shards are padded to [`GF_ORDER`]` - chunk_size` shards
+      but since `IFFT([0u8; x]) == [0u8; x]` and `xor` with `0` is no-op,
+      the chunks which contain only `0u8`:s can be ignored.
 - Recovery shards fit into a single chunk
   which is padded with unused shards if needed.
 - Recovery chunk is generated with following algorithm
@@ -129,6 +132,8 @@ This is implemented in [`HighRateEncoder`].
   which is padded with zero-filled shards if needed.
 - Recovery shards are generated in chunks and last chunk
   is padded with unused shards if needed.
+    - In theory recovery shards are padded to [`GF_ORDER`]` - chunk_size` shards
+      but chunks which contain only unused shards can be ignored.
 - Recovery chunks are generated with following algorithm
 
 ```text
@@ -147,3 +152,5 @@ This is implemented in [`LowRateEncoder`].
 [`GfElement`]: crate::engine::GfElement
 [`HighRateEncoder`]: crate::rate::HighRateEncoder
 [`LowRateEncoder`]: crate::rate::LowRateEncoder
+
+[`GF_ORDER`]: crate::engine::GF_ORDER
