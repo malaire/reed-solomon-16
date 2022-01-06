@@ -103,7 +103,7 @@ assert_eq!(restored[&2], original[2]);
 
 ## Advanced usage
 
-See [`rate`] module for advanced encoding/decoding
+See [`rate`][mod:rate] module for advanced encoding/decoding
 using chosen [`Engine`] and [`Rate`].
 
 ## Benchmarks
@@ -181,6 +181,8 @@ This crate is based on [Leopard-RS] by Christopher A. Taylor.
 
 [`Engine`]: https://docs.rs/reed-solomon-16/0.1.0/reed_solomon_16/engine/trait.Engine.html
 [`Rate`]: https://docs.rs/reed-solomon-16/0.1.0/reed_solomon_16/rate/trait.Rate.html
+
+[mod:rate]: https://docs.rs/reed-solomon-16/0.1.0/reed_solomon_16/rate/index.html
 
 [`reed_solomon_16::encode`]: https://docs.rs/reed-solomon-16/0.1.0/reed_solomon_16/fn.encode.html
 [`reed_solomon_16::decode`]: https://docs.rs/reed-solomon-16/0.1.0/reed_solomon_16/fn.decode.html
