@@ -13,7 +13,6 @@ include = [
     "/src",
     "LICENSE",
     "README.md",
-    "algorithm.md",
     "build.rs",
 ]
 

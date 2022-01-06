@@ -18,7 +18,7 @@ mod encoder_result;
 mod reed_solomon;
 
 pub mod algorithm {
-    #![doc = include_str!("../algorithm.md")]
+    #![doc = include_str!("algorithm.md")]
 }
 pub mod engine;
 pub mod rate;
