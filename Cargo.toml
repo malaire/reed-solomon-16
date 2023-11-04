@@ -16,6 +16,10 @@ include = [
     "build.rs",
 ]
 
+[features]
+default = ["avx2"]
+avx2 = []
+
 [dependencies]
 bytemuck = "1.7.3"
 fixedbitset = "0.4.0"
